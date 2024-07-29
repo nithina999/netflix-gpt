@@ -35,11 +35,11 @@ const VideoContainer = () => {
     : null;
 
   return (
-    <div className="w-screen absolute ">
+    <div>
       {trailerUrl && (
         <div className=" bg-gradient-to-r from-black">
           <iframe
-            className="w-screen h-screen "
+            className="w-full h-screen "
             src={trailerUrl}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -47,7 +47,7 @@ const VideoContainer = () => {
           ></iframe>
         </div>
       )}
-      <div className="absolute top-0 pt-56 text-white  bg-gradient-to-r from-black w-screen h-screen pl-8">
+      <div className="absolute top-0 pt-56 text-white  bg-gradient-to-r from-black w-full h-screen pl-8">
         <h1 className="text-6xl font-bold">{mainMovie.original_title}</h1>
         <p className="text-l w-3/12 py-4">{mainMovie.overview}</p>
         <div>

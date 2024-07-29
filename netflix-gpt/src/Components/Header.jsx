@@ -31,10 +31,10 @@ const Header = () => {
     });
   }, []);
   return (
-    <div className="w-screen absolute bg-gradient-to-b from-black z-10 flex justify-between items-center p-4">
+    <div className="w-full absolute bg-gradient-to-b from-black z-10 flex justify-between items-center p-4">
       <img className="w-44" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex ">
+        <div className="flex">
           <button
             className="bg-red-700 text-white p-2 rounded-md"
             onClick={handleSignOut}
