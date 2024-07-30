@@ -11,3 +11,6 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNmZkMzZjZjg0MzEzOGYyNGY5NzI5NzBiZmIwMGQzYSIsIm5iZiI6MTcyMjE4MjM5MS43OTIzNTcsInN1YiI6IjY2YTY2NjhkOWRkNGUyMTdkZDRlZGEwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eoaxyZ7pVx_gSqO8N-qs9mL5dZ8nCpapsazrTktLSm0",
   },
 };
+
+export const API_KEY =
+  "sk-None-pWEGwsB2WdEoL8IK8xnTT3BlbkFJtARzzAXShr8PEKkAbUj3";

@@ -8,7 +8,8 @@ const MovieCard = ({ title, movies }) => {
       <div className="flex overflow-auto custom-scroll">
         {movies.map((movie) => (
           <img
-            className="w-56"
+            key={movie.id}
+            className="w-56 pr-4"
             src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
           />
         ))}
