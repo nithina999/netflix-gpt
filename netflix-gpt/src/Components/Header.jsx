@@ -7,6 +7,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
 import { toggleSearchPage } from "../utils/gptSearch";
 import { changeLanguage } from "../utils/configSlice";
+import { resetSearchedResults } from "../utils/movieSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -41,6 +42,10 @@ const Header = () => {
   const handleLangChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
+
+  if (searchState) {
+    dispatch(resetSearchedResults());
+  }
   return (
     <div className="w-full absolute bg-gradient-to-b from-black z-10 flex justify-between items-center p-4">
       <img className="w-44" src={LOGO} alt="logo" />

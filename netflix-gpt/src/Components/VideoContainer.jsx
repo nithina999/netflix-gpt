@@ -49,7 +49,7 @@ const VideoContainer = () => {
       )}
       <div className="absolute top-0 pt-56 text-white  bg-gradient-to-r from-black w-full h-screen pl-8">
         <h1 className="text-6xl font-bold">{mainMovie.original_title}</h1>
-        <p className="text-l w-3/12 py-4">{mainMovie.overview}</p>
+        <p className="text-l w-6/12 py-4">{mainMovie.overview}</p>
         <div>
           <button className="py-2 px-4 bg-white text-black rounded-lg mr-2">
             ▶ Play
