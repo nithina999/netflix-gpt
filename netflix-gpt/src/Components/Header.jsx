@@ -53,7 +53,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           {searchState && (
             <select
-              className="bg-black text-white p-2 rounded-md border-none"
+              className="bg-black text-white p-2 rounded-md border-none hidden sm:block"
               onChange={handleLangChange}
             >
               <option value="en">English</option>
@@ -73,7 +73,7 @@ const Header = () => {
           >
             Sign Out
           </button>
-          <p className="text-white font-bold text-lg px-3">
+          <p className="text-white font-bold text-lg px-3 hidden sm:block">
             Welcome, {user.displayName}
           </p>
         </div>

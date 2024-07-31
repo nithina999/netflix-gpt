@@ -6,7 +6,7 @@ const MovieList = () => {
   const movies = useSelector((store) => store.movies?.nowPlaying);
   console.log(movies);
   return (
-    <div className="pl-8 bg-black z-50 relative">
+    <div className="pl-4 sm:pl-8 bg-black z-50 relative">
       <div className="-mt-56">
         <MovieCard title="Now Playing" movies={movies} />
       </div>
