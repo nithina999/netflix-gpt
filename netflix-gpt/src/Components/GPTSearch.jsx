@@ -1,11 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { API_OPTIONS, BG_IMG } from "../utils/constants";
 import languages from "../utils/languages";
 import { useDispatch, useSelector } from "react-redux";
 import { addSearchedMovies } from "../utils/movieSlice";
 import MovieCard from "./MovieCard";
+import Header from "./Header";
 
 export const GPTSearch = () => {
+  const [errorMsg, setErrorMsg] = useState("");
   const dispatch = useDispatch();
   const searchedMovies = useSelector((movie) => movie.movies.searchedMovies);
   console.log("search", searchedMovies);
@@ -23,28 +25,37 @@ export const GPTSearch = () => {
     );
     const json = await data.json();
     dispatch(addSearchedMovies(json.results));
+    if (json.results.length == 0) setErrorMsg("No Results found");
   };
 
   return (
-    <div>
-      <img src={BG_IMG} alt="bg" />
-      <div className="absolute bottom-[70%] left-[25%] bg-black p-4 w-6/12">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input
-            ref={searchText}
-            type="text"
-            placeholder={languages[langKey].searchPlaceholder}
-            className="px-4 py-4 w-9/12"
-          />
-          <button
-            className="bg-red-700 text-white px-4 py-4 w-3/12"
-            onClick={handleSearchResults}
+    <div
+      className="relative min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${BG_IMG})` }}
+    >
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="bg-black bg-opacity-75 p-6 rounded-lg shadow-lg max-w-4xl w-full mx-4">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex flex-col items-center"
           >
-            {languages[langKey].search}
-          </button>
-        </form>
-        <div className="absolute bg-black opacity-80 p-4">
-          <MovieCard title={"Your Results"} movies={searchedMovies} />
+            <input
+              ref={searchText}
+              type="text"
+              placeholder={languages[langKey].searchPlaceholder}
+              className="px-4 py-2 w-full md:w-9/12 mb-4 rounded-md border border-gray-600 bg-gray-800 text-white"
+            />
+            <button
+              className="bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-800 transition-colors"
+              onClick={handleSearchResults}
+            >
+              {languages[langKey].search}
+            </button>
+          </form>
+          <div className="mt-6">
+            <MovieCard title="Your Results" movies={searchedMovies} />
+          </div>
+          <p className="text-white">{errorMsg}</p>
         </div>
       </div>
     </div>

@@ -47,13 +47,13 @@ const Header = () => {
     dispatch(resetSearchedResults());
   }
   return (
-    <div className="w-full absolute bg-gradient-to-b from-black z-10 flex justify-between items-center p-4">
-      <img className="w-44" src={LOGO} alt="logo" />
+    <header className="w-full absolute top-0 left-0 bg-gradient-to-b from-black z-10 flex justify-between items-center p-4 md:p-6">
+      <img className="w-32 md:w-44" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex">
+        <div className="flex items-center gap-4">
           {searchState && (
             <select
-              className="bg-black mr-2 text-white p-2"
+              className="bg-black text-white p-2 rounded-md border-none"
               onChange={handleLangChange}
             >
               <option value="en">English</option>
@@ -62,24 +62,23 @@ const Header = () => {
             </select>
           )}
           <button
-            className="py-2 px-4 rounded-lg mr-2 bg-purple-500 text-white"
+            className="py-2 px-4 rounded-md bg-red-600 text-white hover:bg-red-700 transition"
             onClick={handleGPTSearch}
           >
-            {searchState ? "Home" : "GPT Search"}
+            {searchState ? "Home" : "Search"}
           </button>
           <button
-            className="bg-red-700 text-white p-2 rounded-md"
+            className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition"
             onClick={handleSignOut}
           >
             Sign Out
           </button>
-
-          {/* <p className="text-white font-bold text-xl px-3 items-center">
-            {user.displayName}
-          </p> */}
+          <p className="text-white font-bold text-lg px-3">
+            Welcome, {user.displayName}
+          </p>
         </div>
       )}
-    </div>
+    </header>
   );
 };
 

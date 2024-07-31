@@ -35,26 +35,28 @@ const VideoContainer = () => {
     : null;
 
   return (
-    <div>
+    <div className="relative w-full h-screen">
       {trailerUrl && (
-        <div className=" bg-gradient-to-r from-black">
-          <iframe
-            className="w-full h-screen "
-            src={trailerUrl}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-          ></iframe>
-        </div>
+        <iframe
+          className="absolute inset-0 w-full h-full object-cover"
+          src={trailerUrl}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+        ></iframe>
       )}
-      <div className="absolute top-0 pt-56 text-white  bg-gradient-to-r from-black w-full h-screen pl-8">
-        <h1 className="text-6xl font-bold">{mainMovie.original_title}</h1>
-        <p className="text-l w-6/12 py-4">{mainMovie.overview}</p>
-        <div>
-          <button className="py-2 px-4 bg-white text-black rounded-lg mr-2">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black p-8 flex flex-col justify-center">
+        <h1 className="text-6xl font-bold text-white mb-4">
+          {mainMovie.original_title}
+        </h1>
+        <p className="text-lg text-white mb-6 w-4/5 lg:w-1/2">
+          {mainMovie.overview}
+        </p>
+        <div className="flex space-x-4">
+          <button className="py-2 px-4 bg-white text-black rounded-lg hover:bg-gray-200 transition">
             ▶ Play
           </button>
-          <button className="py-2 px-4 bg-gray-800 text-white rounded-lg">
+          <button className="py-2 px-4 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition">
             More Info
           </button>
         </div>
