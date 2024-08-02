@@ -17,7 +17,7 @@ This project is a clone of Netflix, built using React, Redux, Tailwind CSS, and 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/netflix-clone.git
+   git clone https://github.com/nithina999/netflix-gpt.git
    cd netflix-clone
    ```
 
